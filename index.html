@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Celebration</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fef8f5;
+      color: #333;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header {
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d6336c;
+    }
+
+    section {
+      margin: 30px 0;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #d6336c;
+    }
+
+    p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Photo Carousel */
+    .carousel-container {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    /* Carousel Buttons */
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      font-size: 20px;
+      border-radius: 50%;
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .carousel-btn:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    /* Wedding Details */
+    .details {
+      background-color: #fff3e0;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      width: 80%;
+      max-width: 500px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .details p {
+      font-size: 1.2rem;
+      margin: 10px 0;
+    }
+
+    .details span {
+      font-weight: bold;
+      color: #d6336c;
+    }
+
+    /* RSVP Form */
+    .rsvp {
+      background-color: #ffebee;
+      padding: 20px;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 500px;
+      margin: auto;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .rsvp input,
+    .rsvp button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .rsvp input {
+      border: 1px solid #ccc;
+    }
+
+    .rsvp button {
+      background-color: #d6336c;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    .rsvp button:hover {
+      background-color: #b52b59;
+    }
+
+    footer {
+      margin-top: 50px;
+      font-size: 1rem;
+      color: #777;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>#TwoAsOneLove</h1>
+  </header>
+
+  <!-- Photo Carousel Section -->
+  <section id="photo-carousel">
+    <h2>Our Journey</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <img src="Images/fotoxclusive studios-1.jpg" alt="Couple Photo 1">
+        <img src="Images/fotoxclusive studios-7.jpg" alt="Couple Photo 2">
+        <img src="Images/fotoxclusive studios-10.jpg" alt="Couple Photo 3">
+        <img src="Images/fotoxclusive studios-18.jpg" alt="Couple Photo 4">
+        <img src="Images/fotoxclusive studios-20.jpg" alt="Couple Photo 5">
+        <img src="Images/fotoxclusive studios-22.jpg" alt="Couple Photo 6">
+        <img src="Images/grid.jpg" alt="Couple Photo 7">
+      </div>
+      <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
+      <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section id="our-story">
+    <h2>Our Story</h2>
+    <p><strong>How We Met:</strong> It all started with a simple "Hello," and the rest is history. From that moment, our love has grown stronger every day.</p>
+    <p><strong>The Proposal:</strong> A magical evening, a heartfelt question, and an unforgettable "Yes!" Our journey to forever begins.</p>
+  </section>
+
+  <!-- Wedding Details -->
+  <section id="wedding-details">
+    <h2>Wedding Details</h2>
+    <div class="details">
+      <p><span>Date:</span> March 15, 2025</p>
+      <p><span>Venue:</span> The Grand Hall, Lagos</p>
+      <p><span>Time:</span> 2:00 PM</p>
+      <p><span>Dress Code:</span> Elegant & Formal</p>
+    </div>
+  </section>
+
+  <!-- RSVP -->
+  <section id="rsvp">
+    <h2>RSVP</h2>
+    <div class="rsvp">
+      <input type="text" placeholder="Your Name">
+      <input type="email" placeholder="Your Email">
+      <button>Confirm Attendance</button>
+    </div>
+    <div>
+        <button onclick="window.location.href='https://www.dropbox.com/request/k41U54vNuQ8IW1aeWI5s'">
+            Upload Your Event Photos
+        </button>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Wedding of Annie & Ayo | #TwoAsOneLove</p>
+  </footer>
+
+  <script>
+    let currentIndex = 0;
+    const carousel = document.querySelector(".carousel");
+    const images = document.querySelectorAll(".carousel img");
+    const totalImages = images.length;
+
+    function updateCarousel() {
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    }
+
+    function nextSlide() {
+      currentIndex = (currentIndex + 1) % totalImages;
+      update
