@@ -14,26 +14,28 @@
 
     body {
       font-family: Arial, sans-serif;
-      background:url(Images/DSC_3733.jpg);
+      background: url(Images/DSC_3733.jpg);
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
-      color: #333;
+      color: #fff;
       text-align: center;
       padding: 20px;
+      position: relative;
     }
 
+    /* Background Overlay */
     body::before {
-   content: "";
-   position: fixed;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: rgba(0, 0, 0, 0.3); /* Darkens background slightly */
-   z-index: -1;
-}
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
 
     header {
       margin-bottom: 20px;
@@ -41,7 +43,7 @@
 
     h1 {
       font-size: 2.5rem;
-      color: #d6336c;
+      color: #ffcccb;
     }
 
     section {
@@ -51,7 +53,7 @@
     h2 {
       font-size: 1.8rem;
       margin-bottom: 15px;
-      color: #d6336c;
+      color: #ffcccb;
     }
 
     p {
@@ -79,6 +81,8 @@
 
     .carousel img {
       width: 100%;
+      height: auto;
+      object-fit: cover; /* Ensures images maintain aspect ratio */
       border-radius: 10px;
     }
 
@@ -110,7 +114,7 @@
 
     /* Story Section */
     .story {
-      background-color: #fff3e0;
+      background-color: rgba(255, 255, 255, 0.2);
       padding: 20px;
       border-radius: 10px;
       margin: 20px auto;
@@ -121,7 +125,7 @@
 
     /* Well Wishes Section */
     .wishes {
-      background-color: #ffebee;
+      background-color: rgba(255, 255, 255, 0.2);
       padding: 20px;
       border-radius: 10px;
       width: 80%;
@@ -153,25 +157,6 @@
       cursor: pointer;
     }
 
-    button {
-      background-color: #d6336c;
-      color: white;
-      font-size: 1.2rem;
-      cursor: pointer;
-      padding: 20px;
-      border: none;
-      border-radius: 10px;
-    }
-
-    button:hover {
-      background-color: #b52b59;
-    }
-
-    .wishes button:hover {
-      background-color: #b52b59;
-    }
-
-    /* Well Wishes Carousel */
     .wishes-container {
       position: relative;
       width: 90%;
@@ -179,16 +164,16 @@
       margin: 20px auto;
       overflow: hidden;
       border-radius: 10px;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.2);
       padding: 15px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       min-height: 100px;
     }
 
     .wishes-carousel {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
 
     .wishes-carousel div {
       min-width: 100%;
@@ -199,7 +184,7 @@
     footer {
       margin-top: 50px;
       font-size: 1rem;
-      color: #777;
+      color: #fff;
     }
   </style>
 </head>
@@ -220,7 +205,7 @@
         <img src="Images/fotoxclusive studios-20.jpg" alt="Couple Photo 4">
         <img src="Images/fotoxclusive studios-10.jpg" alt="Couple Photo 5">
         <img src="Images/fotoxclusive studios-22.jpg" alt="Couple Photo 6">
-        <img src="Images/grid.jpg" alt="Couple Photo 7" alt="Couple Photo 7">
+        <img src="Images/grid.jpg" alt="Couple Photo 7">
       </div>
       <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
       <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
@@ -231,19 +216,27 @@
   <section id="our-story">
     <h2>Our Story</h2>
     <div class="story">
-      <p><em>How it all began.</em></p>
-
-       <p>The year was 2018. The place? NYSC Secretariat, Rivers State.</p>
-        
-       <p>We met during an OBS CDS meeting — just another ordinary day, or so we thought. </p>
-        
-        <p>Ayo, being his usual lively self, was talking non-stop with his friends during the meeting. Annie found it… let’s just say, hard to ignore. She stared at him—purely out of curiosity, of course.</p>
-        
-         <p>Ayo, on the other hand, insists she was eyeing him. Don’t believe him. Seriously, don’t. 😂</p>
-        
-        <p>That moment turned into a friendship, which turned into something even more beautiful. Through the years, we’ve been each other’s loudest cheerleader, strongest support, and best friends</p>
-        
-        <p>And now, we’re making it official — forever sounds just right.</p>
+      <p>
+        <em>How it all began.</em>
+      </p>
+      <p>
+        The year was 2018. The place? NYSC Secretariat, Rivers State.
+      </p>
+      <p>
+        We met during an OBS CDS meeting—just another ordinary day, or so we thought.
+      </p>
+      <p>
+        Ayo, being his usual lively self, was talking non-stop with his friends during the meeting. Annie found it… let’s just say, hard to ignore. She stared at him—purely out of curiosity, of course.
+      </p>
+      <p>
+        Ayo, on the other hand, insists she was eyeing him. Don’t believe him. Seriously, don’t. 😂
+      </p>
+      <p>
+        That moment turned into a friendship, which turned into something even more beautiful. Through the years, we’ve been each other’s loudest cheerleader, strongest support, and best friends 
+      </p>
+      <p>
+        And now, we’re making it official—forever sounds just right.
+      </p>
     </div>
   </section>
 
@@ -260,33 +253,35 @@
     </div>
   </section>
 
-  <!-- Upload Button -->
-  <div>
-    <button onclick="window.location.href='https://www.dropbox.com/request/k41U54vNuQ8IW1aeWI5s'">
-      Upload Your Event Photos
-    </button>
-  </div>
-
   <footer>
     <p>&copy; 2025 Wedding of Annie & Ayo | TwoAsOneLove</p>
   </footer>
 
   <script>
     let currentIndex = 0;
+    let totalImages = document.querySelectorAll(".carousel img").length;
     const carousel = document.querySelector(".carousel");
-    function prevSlide() { currentIndex = (currentIndex - 1 + totalImages) % totalImages; updateCarousel(); }
-    function nextSlide() { currentIndex = (currentIndex + 1) % totalImages; updateCarousel(); }
-    function updateCarousel() { carousel.style.transform = `translateX(-${currentIndex * 100}%)`; }
 
-    function addWish() {
-      const name = document.getElementById("wish-name").value;
-      const message = document.getElementById("wish-message").value;
-      if (name && message) {
-        document.querySelector(".wishes-carousel").innerHTML += `<div><strong>${name}:</strong> ${message}</div>`;
-        document.getElementById("wish-name").value = "";
-        document.getElementById("wish-message").value = "";
-      }
+    function autoSlide() {
+      currentIndex = (currentIndex + 1) % totalImages;
+      updateCarousel();
     }
+
+    function prevSlide() { 
+      currentIndex = (currentIndex - 1 + totalImages) % totalImages; 
+      updateCarousel(); 
+    }
+
+    function nextSlide() { 
+      currentIndex = (currentIndex + 1) % totalImages; 
+      updateCarousel(); 
+    }
+
+    function updateCarousel() { 
+      carousel.style.transform = `translateX(-${currentIndex * 100}%)`; 
+    }
+
+    setInterval(autoSlide, 5000);
   </script>
 
 </body>
