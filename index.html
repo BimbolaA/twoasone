@@ -169,28 +169,31 @@
     }
 
     .wishes-container {
-      position: relative;
-      width: 90%;
-      max-width: 500px;
-      margin: 20px auto;
-      overflow: hidden;
-      border-radius: 10px;
-      background-color: rgba(255, 255, 255, 0.2);
-      padding: 15px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-      min-height: 100px;
-    }
+    position: relative;
+    width: 90%;
+    max-width: 500px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-height: 100px;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping */
+}
 
-    .wishes-carousel {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
+.wishes-carousel {
+    display: inline-flex; /* Use inline-flex for horizontal layout */
+    transition: transform 0.5s ease-in-out;
+}
 
-    .wishes-carousel div {
-      min-width: 100%;
-      text-align: center;
-      padding: 10px;
-    }
+.wishes-carousel div {
+    min-width: 100%;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box; /* Include padding in width calculation */
+}
 
     footer {
       margin-top: 50px;
@@ -255,14 +258,14 @@
   <section id="well-wishes">
     <h2>Leave Your Well Wishes</h2>
     <div class="wishes">
-      <input type="text" id="wish-name" placeholder="Your Name">
-      <textarea id="wish-message" placeholder="Your Message"></textarea>
-      <button onclick="addWish()">Submit</button>
+        <input type="text" id="wish-name" placeholder="Your Name">
+        <textarea id="wish-message" placeholder="Your Message"></textarea>
+        <button onclick="addWish()">Submit</button>
     </div>
     <div class="wishes-container">
-      <div class="wishes-carousel"></div>
+        <div class="wishes-carousel"></div>
     </div>
-  </section>
+</section>
 
    <!-- Upload Button -->
    <div class="upload">
@@ -281,25 +284,63 @@
     const carousel = document.querySelector(".carousel");
 
     function autoSlide() {
-      currentIndex = (currentIndex + 1) % totalImages;
-      updateCarousel();
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateCarousel();
     }
 
-    function prevSlide() { 
-      currentIndex = (currentIndex - 1 + totalImages) % totalImages; 
-      updateCarousel(); 
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        updateCarousel();
     }
 
-    function nextSlide() { 
-      currentIndex = (currentIndex + 1) % totalImages; 
-      updateCarousel(); 
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateCarousel();
     }
 
-    function updateCarousel() { 
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`; 
+    function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
     }
 
     setInterval(autoSlide, 5000);
+
+    // Well Wishes Functionality
+    const wishes = [];
+    const wishesCarousel = document.querySelector(".wishes-carousel");
+
+    function addWish() {
+        const name = document.getElementById("wish-name").value;
+        const message = document.getElementById("wish-message").value;
+
+        if (name && message) {
+            const wish = { name: name, message: message, timestamp: new Date().toLocaleString() };
+            wishes.push(wish);
+            displayWishes();
+            document.getElementById("wish-name").value = "";
+            document.getElementById("wish-message").value = "";
+        } else {
+            alert("Please enter your name and message.");
+        }
+    }
+
+    function displayWishes() {
+        wishesCarousel.innerHTML = ""; // Clear existing wishes
+        wishes.forEach(wish => {
+            const wishDiv = document.createElement("div");
+            wishDiv.innerHTML = `<strong>${wish.name}</strong> (${wish.timestamp}):<br>${wish.message}`;
+            wishesCarousel.appendChild(wishDiv);
+        });
+    }
+
+    //Auto Scroll wishes
+    let wishIndex = 0;
+    function autoScrollWishes() {
+        if(wishes.length > 0){
+            wishIndex = (wishIndex + 1) % wishes.length;
+            wishesCarousel.style.transform = `translateX(-${wishIndex * 100}%)`;
+        }
+    }
+    setInterval(autoScrollWishes, 5000)
   </script>
 
 </body>
