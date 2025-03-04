@@ -14,7 +14,11 @@
 
     body {
       font-family: Arial, sans-serif;
-      background-color: #fef8f5;
+      background:url(Images/DSC_3733.jpg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
       color: #333;
       text-align: center;
       padding: 20px;
@@ -93,29 +97,19 @@
       background-color: rgba(0, 0, 0, 0.8);
     }
 
-    /* Wedding Details */
-    .details {
+    /* Story Section */
+    .story {
       background-color: #fff3e0;
       padding: 20px;
       border-radius: 10px;
       margin: 20px auto;
       width: 80%;
-      max-width: 500px;
+      max-width: 700px;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .details p {
-      font-size: 1.2rem;
-      margin: 10px 0;
-    }
-
-    .details span {
-      font-weight: bold;
-      color: #d6336c;
-    }
-
-    /* RSVP Form */
-    .rsvp {
+    /* Well Wishes Section */
+    .wishes {
       background-color: #ffebee;
       padding: 20px;
       border-radius: 10px;
@@ -125,8 +119,9 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
 
-    .rsvp input,
-    .rsvp button {
+    .wishes input,
+    .wishes textarea,
+    .wishes button {
       width: 100%;
       padding: 10px;
       margin: 10px 0;
@@ -134,19 +129,60 @@
       border-radius: 5px;
     }
 
-    .rsvp input {
+    .wishes textarea {
+      height: 100px;
+      resize: none;
       border: 1px solid #ccc;
     }
 
-    .rsvp button {
+    .wishes button {
       background-color: #d6336c;
       color: white;
       font-size: 1.2rem;
       cursor: pointer;
     }
 
-    .rsvp button:hover {
+    button {
+      background-color: #d6336c;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 20px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    button:hover {
       background-color: #b52b59;
+    }
+
+    .wishes button:hover {
+      background-color: #b52b59;
+    }
+
+    /* Well Wishes Carousel */
+    .wishes-container {
+      position: relative;
+      width: 90%;
+      max-width: 500px;
+      margin: 20px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      background-color: #fff;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      min-height: 100px;
+    }
+
+    .wishes-carousel {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .wishes-carousel div {
+      min-width: 100%;
+      text-align: center;
+      padding: 10px;
     }
 
     footer {
@@ -154,17 +190,15 @@
       font-size: 1rem;
       color: #777;
     }
-
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
   <header>
     <h1>#TwoAsOneLove</h1>
   </header>
 
-  <!-- Photo Carousel Section -->
+  <!-- Photo Carousel -->
   <section id="photo-carousel">
     <h2>Our Journey</h2>
     <div class="carousel-container">
@@ -172,10 +206,6 @@
         <img src="Images/fotoxclusive studios-1.jpg" alt="Couple Photo 1">
         <img src="Images/fotoxclusive studios-7.jpg" alt="Couple Photo 2">
         <img src="Images/fotoxclusive studios-10.jpg" alt="Couple Photo 3">
-        <img src="Images/fotoxclusive studios-18.jpg" alt="Couple Photo 4">
-        <img src="Images/fotoxclusive studios-20.jpg" alt="Couple Photo 5">
-        <img src="Images/fotoxclusive studios-22.jpg" alt="Couple Photo 6">
-        <img src="Images/grid.jpg" alt="Couple Photo 7">
       </div>
       <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
       <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
@@ -185,50 +215,64 @@
   <!-- Our Story -->
   <section id="our-story">
     <h2>Our Story</h2>
-    <p><strong>How We Met:</strong> It all started with a simple "Hello," and the rest is history. From that moment, our love has grown stronger every day.</p>
-    <p><strong>The Proposal:</strong> A magical evening, a heartfelt question, and an unforgettable "Yes!" Our journey to forever begins.</p>
+    <div class="story">
+      <p>How it all began.
+
+        The year was 2018. The place? NYSC Secretariat, Rivers State.
+        
+        We met during an OBS CDS meeting — just another ordinary day, or so we thought. 
+        
+        Ayo, being his usual lively self, was talking non-stop with his friends during the meeting. Annie found it… let’s just say, hard to ignore. She stared at him—purely out of curiosity, of course.
+        
+         Ayo, on the other hand, insists she was eyeing him. Don’t believe him. Seriously, don’t. 😂
+        
+        That moment turned into a friendship, which turned into something even more beautiful. Through the years, we’ve been each other’s loudest cheerleader, strongest support, and best friends 
+        
+        And now, we’re making it official — forever sounds just right.</p>
+    </div>
   </section>
 
-  <!-- Wedding Details -->
-  <section id="wedding-details">
-    <h2>Wedding Details</h2>
-    <div class="details">
-      <p><span>Date:</span> March 15, 2025</p>
-      <p><span>Venue:</span> The Grand Hall, Lagos</p>
-      <p><span>Time:</span> 2:00 PM</p>
-      <p><span>Dress Code:</span> Elegant & Formal</p>
+  <!-- Well Wishes -->
+  <section id="well-wishes">
+    <h2>Leave Your Well Wishes</h2>
+    <div class="wishes">
+      <input type="text" id="wish-name" placeholder="Your Name">
+      <textarea id="wish-message" placeholder="Your Message"></textarea>
+      <button onclick="addWish()">Submit</button>
+    </div>
+    <div class="wishes-container">
+      <div class="wishes-carousel"></div>
     </div>
   </section>
 
-  <!-- RSVP -->
-  <section id="rsvp">
-    <h2>RSVP</h2>
-    <div class="rsvp">
-      <input type="text" placeholder="Your Name">
-      <input type="email" placeholder="Your Email">
-      <button>Confirm Attendance</button>
-    </div>
-    <div>
-        <button onclick="window.location.href='https://www.dropbox.com/request/k41U54vNuQ8IW1aeWI5s'">
-            Upload Your Event Photos
-        </button>
-    </div>
-  </section>
+  <!-- Upload Button -->
+  <div>
+    <button onclick="window.location.href='https://www.dropbox.com/request/k41U54vNuQ8IW1aeWI5s'">
+      Upload Your Event Photos
+    </button>
+  </div>
 
   <footer>
-    <p>&copy; 2025 Wedding of Annie & Ayo | #TwoAsOneLove</p>
+    <p>&copy; 2025 Wedding of Annie & Ayo | TwoAsOneLove</p>
   </footer>
 
   <script>
     let currentIndex = 0;
     const carousel = document.querySelector(".carousel");
-    const images = document.querySelectorAll(".carousel img");
-    const totalImages = images.length;
+    function prevSlide() { currentIndex = (currentIndex - 1 + 3) % 3; updateCarousel(); }
+    function nextSlide() { currentIndex = (currentIndex + 1) % 3; updateCarousel(); }
+    function updateCarousel() { carousel.style.transform = `translateX(-${currentIndex * 100}%)`; }
 
-    function updateCarousel() {
-      carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    function addWish() {
+      const name = document.getElementById("wish-name").value;
+      const message = document.getElementById("wish-message").value;
+      if (name && message) {
+        document.querySelector(".wishes-carousel").innerHTML += `<div><strong>${name}:</strong> ${message}</div>`;
+        document.getElementById("wish-name").value = "";
+        document.getElementById("wish-message").value = "";
+      }
     }
+  </script>
 
-    function nextSlide() {
-      currentIndex = (currentIndex + 1) % totalImages;
-      update
+</body>
+</html>
