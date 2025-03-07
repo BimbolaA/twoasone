@@ -59,53 +59,50 @@
     p {
       font-size: 1.2rem;
       line-height: 1.5;
-      max-width: 700px;
+      max-width: 500px;
       margin: 0 auto;
     }
 
     /* Photo Carousel */
     .carousel-container {
-      position: relative;
-      width: 90%;
-      max-width: 500px;
-      margin: auto;
-      overflow: hidden;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
-
-    .carousel {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
+        position: relative;
+        width: 90%;
+        max-width: 500px; /* Reduced max-width */
+        margin: 20px auto;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        padding: 0 20px;
     }
 
     .carousel img {
-      width: 100%;
-      height: auto;
-      object-fit: cover; /* Ensures images maintain aspect ratio */
-      border-radius: 10px;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 10px;
     }
 
-    /* Carousel Buttons */
     .carousel-btn {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(0, 0, 0, 0.5);
-      color: white;
-      border: none;
-      cursor: pointer;
-      padding: 10px;
-      font-size: 20px;
-      border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        border: none;
+        cursor: pointer;
+        padding: 10px 15px;
+        font-size: 24px;
+        border-radius: 50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        transition: background-color 0.3s ease;
+        display: none; /* Buttons are now hidden */
     }
 
     .prev {
-      left: 10px;
+        left: 10px;
     }
 
     .next {
-      right: 10px;
+        right: 10px;
     }
 
     .carousel-btn:hover {
@@ -179,12 +176,12 @@
     padding: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     min-height: 100px;
-    overflow-x: auto; /* Enable horizontal scrolling */
-    white-space: nowrap; /* Prevent wrapping */
+    overflow-x: auto; 
+    white-space: nowrap; 
 }
 
 .wishes-carousel {
-    display: inline-flex; /* Use inline-flex for horizontal layout */
+    display: inline-flex; 
     transition: transform 0.5s ease-in-out;
 }
 
@@ -213,13 +210,13 @@
     <h2>Our Journey</h2>
     <div class="carousel-container">
       <div class="carousel">
-        <img src="Images/fotoxclusive studios-1.jpg" alt="Couple Photo 1">
-        <img src="Images/fotoxclusive studios-7.jpg" alt="Couple Photo 2">
-        <img src="Images/fotoxclusive studios-18.jpg" alt="Couple Photo 3">
-        <img src="Images/fotoxclusive studios-20.jpg" alt="Couple Photo 4">
-        <img src="Images/fotoxclusive studios-10.jpg" alt="Couple Photo 5">
-        <img src="Images/fotoxclusive studios-22.jpg" alt="Couple Photo 6">
-        <img src="Images/grid.jpg" alt="Couple Photo 7">
+          <img src="Images/fotoxclusive studios-1.jpg" alt="Annie and Ayo pre-wedding photo 1">
+          <img src="Images/fotoxclusive studios-7.jpg" alt="Annie and Ayo pre-wedding photo 2">
+          <img src="Images/fotoxclusive studios-18.jpg" alt="Annie and Ayo pre-wedding photo 3">
+          <img src="Images/fotoxclusive studios-20.jpg" alt="Annie and Ayo pre-wedding photo 4">
+          <img src="Images/fotoxclusive studios-10.jpg" alt="Annie and Ayo pre-wedding photo 5">
+          <img src="Images/fotoxclusive studios-22.jpg" alt="Annie and Ayo pre-wedding photo 6">
+          <img src="Images/grid.jpg" alt="Annie and Ayo pre-wedding photo 7">
       </div>
       <button class="carousel-btn prev" onclick="prevSlide()">&#10094;</button>
       <button class="carousel-btn next" onclick="nextSlide()">&#10095;</button>
@@ -335,12 +332,12 @@
     //Auto Scroll wishes
     let wishIndex = 0;
     function autoScrollWishes() {
-        if(wishes.length > 0){
-            wishIndex = (wishIndex + 1) % wishes.length;
-            wishesCarousel.style.transform = `translateX(-${wishIndex * 100}%)`;
+            if (wishes.length > 0) { // Check if there are wishes
+                wishIndex = (wishIndex + 1) % wishes.length;
+                wishesCarousel.style.transform = `translateX(-${wishIndex * 100}%)`;
+            }
         }
-    }
-    setInterval(autoScrollWishes, 5000)
+        setInterval(autoScrollWishes, 5000);
   </script>
 
 </body>
